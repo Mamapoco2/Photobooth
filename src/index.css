@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Jost', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --shadow-glass: 0 8px 32px rgba(45, 40, 35, 0.08);
+  --shadow-hero: 0 25px 60px -12px rgba(45, 40, 35, 0.12);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Warm paper (photobooth-io style) */
+    --background: 252 248 242;
+    --foreground: 45 40 35;
+    --card: 255 255 255;
+    --card-fg: 45 40 35;
+    --muted: 120 113 105;
+    --border: 231 223 212;
+    --accent: 139 115 95;
+    --accent-fg: 255 253 248;
+    --glass: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(231, 223, 212, 0.9);
+    --pb-surface: 247 241 232;
+    --pb-cta: 55 48 42;
+    --pb-cta-hover: 42 38 34;
+    --pb-cta-label: 255 252 246;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 28 25 23;
+    --foreground: 245 242 237;
+    --card: 41 37 36;
+    --card-fg: 245 242 237;
+    --muted: 168 162 154;
+    --border: 68 64 61;
+    --accent: 196 181 160;
+    --accent-fg: 28 25 23;
+    --glass: rgba(41, 37, 36, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --pb-surface: 35 32 30;
+    --pb-cta: 232 228 220;
+    --pb-cta-hover: 214 209 200;
+    --pb-cta-label: 28 25 23;
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    min-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .pb-texture {
+    background-color: rgb(var(--background));
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(196, 181, 160, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 100%,
+        rgba(231, 223, 212, 0.35),
+        transparent
+      );
+  }
+
+  .dark .pb-texture {
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(139, 115, 95, 0.12),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 100% 80%,
+        rgba(68, 64, 61, 0.4),
+        transparent
+      );
+  }
+}
